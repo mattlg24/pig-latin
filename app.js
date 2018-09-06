@@ -26,7 +26,7 @@ myApp.controller('mainController', [
                         var begin = textArr[i].split(/([aeiouAEIOU].*)/)[0]
                         var end = textArr[i].split(/([aeiouAEIOU].*)/)[1]
                     }
-                    var pigWord = end + '-' + begin + 'ay'
+                    var pigWord = end + begin + 'ay'
                     pigArr.push(pigWord)
                 }
                 //set to scope
@@ -34,6 +34,7 @@ myApp.controller('mainController', [
                 $scope.errorMsg = ''
                 // if numbers found in text
             } else {
+                $scope.pigText = ''
                 $scope.errorMsg = 'Enter letters only.'
             }
 

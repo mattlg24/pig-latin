@@ -12,3 +12,14 @@
 .btn:focus {
     color: #fff;
 }
+
+.error p {
+    color: #cc0000;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    border-color: #cc0000;
+}
+
+
+}
