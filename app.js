@@ -11,6 +11,7 @@ myApp.controller('mainController', [
             //check if text does not contain numbers
             var text = $scope.userText
             var alpha = /^[^0-9]+$/
+            // if no numbers in text
             if (text.match(alpha)) {
                 $scope.pigText = ''
                 var textArr = $scope.userText.split(' ')
@@ -18,12 +19,12 @@ myApp.controller('mainController', [
                 // loop through textArr to work on individual word
                 for (var i = 0; i < textArr.length; i++) {
                     // regex to rework the order to match pig Latin
-                    var begin = textArr[i].split(/([aeiouy].*)/)[0]
-                    var end = textArr[i].split(/([aeiouy].*)/)[1]
+                    var begin = textArr[i].split(/([aeiouyAEIOUY].*)/)[0]
+                    var end = textArr[i].split(/([aeiouyAEIOUY].*)/)[1]
                     // check if first letter is a 'y'. if yes, include 'y' with begin var
                     if (textArr[i].indexOf('y') === 0) {
-                        var begin = textArr[i].split(/([aeiou].*)/)[0]
-                        var end = textArr[i].split(/([aeiou].*)/)[1]
+                        var begin = textArr[i].split(/([aeiouAEIOU].*)/)[0]
+                        var end = textArr[i].split(/([aeiouAEIOU].*)/)[1]
                     }
                     var pigWord = end + '-' + begin + 'ay'
                     pigArr.push(pigWord)
@@ -31,6 +32,7 @@ myApp.controller('mainController', [
                 //set to scope
                 $scope.pigText = pigArr.join(' ')
                 $scope.errorMsg = ''
+                // if numbers found in text
             } else {
                 $scope.errorMsg = 'Enter letters only.'
             }

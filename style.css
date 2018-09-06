@@ -8,3 +8,7 @@
     border-color: #0062cc;
     color: #fff;
 }
+
+.btn:focus {
+    color: #fff;
+}
