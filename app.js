@@ -1,6 +1,6 @@
 // maybe connect to a dictionary to get word meanings
 // be able to tweet your pig latin text
-// add logic to include '?' or '.' 
+// add logic to include '?' or '.'
 var myApp = angular.module('pigLatinApp', [])
 
 myApp.controller('mainController', [
@@ -32,12 +32,17 @@ myApp.controller('mainController', [
                     pigArr.push(pigWord)
                 }
                 //set to scope
-                $scope.pigText = pigArr.join(' ')
+                $scope.pigText = pigArr.join(' ') + '.'
                 $scope.errorMsg = ''
+                //append '?' or '.' to end of text
+                var question = ['who', 'what', 'when', 'where', 'why', 'how']
+                if (question.indexOf(textArr[0].toLowerCase()) !== -1) {
+                    $scope.pigText = pigArr.join(' ') + '?'
+                }
                 // if numbers found in text
             } else {
                 $scope.pigText = ''
-                $scope.errorMsg = 'Enter letters only.'
+                $scope.errorMsg = 'Enter letters only'
             }
 
         }
