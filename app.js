@@ -1,6 +1,5 @@
 // maybe connect to a dictionary to get word meanings
-// be able to tweet your pig latin text
-// add logic to include '?' or '.'
+// be able to tweet your pig latin text (maybe make it a character limit for twitter)
 var myApp = angular.module('pigLatinApp', [])
 
 myApp.controller('mainController', [
@@ -10,8 +9,24 @@ myApp.controller('mainController', [
         // grab text from user
         $scope.userText = ''
         $scope.clicked = function() {
-            //check if text does not contain numbers
             var text = $scope.userText
+
+            // check for punctuation and strip out
+            // var reg = /([\?.\!])+/
+            var reg = /([\?])+/
+
+            text = text.replace(reg, '')
+            console.log('TEXT ', text);
+            puncuation = text.replace(reg, reg)
+            console.log('PUNCUATION ', puncuation);
+
+            // if (text.match(reg)) {
+            // }
+
+
+
+
+            //check if text does not contain numbers
             var alpha = /^[^0-9]+$/
             // if no numbers in text
             if (text.match(alpha)) {
@@ -34,7 +49,7 @@ myApp.controller('mainController', [
                 //set to scope
                 $scope.pigText = pigArr.join(' ') + '.'
                 $scope.errorMsg = ''
-                //append '?' or '.' to end of text
+                //append '?' to end of text if question
                 var question = ['who', 'what', 'when', 'where', 'why', 'how']
                 if (question.indexOf(textArr[0].toLowerCase()) !== -1) {
                     $scope.pigText = pigArr.join(' ') + '?'
