@@ -15,11 +15,11 @@
 
 .error p {
     color: #cc0000;
-    padding: 10px;
-    border: 1px solid black;
+    padding: 6px;
+    border: 1px solid #cc0000;
     border-radius: 3px;
-    border-color: #cc0000;
 }
 
-
+.error.ng-scope {
+    background-color: #f2dede;
 }

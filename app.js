@@ -1,4 +1,6 @@
 // maybe connect to a dictionary to get word meanings
+// be able to tweet your pig latin text
+// add logic to include '?' or '.' 
 var myApp = angular.module('pigLatinApp', [])
 
 myApp.controller('mainController', [
