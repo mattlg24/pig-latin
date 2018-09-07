@@ -1,5 +1,6 @@
 // maybe connect to a dictionary to get word meanings
 // be able to tweet your pig latin text (maybe make it a character limit for twitter)
+// strip out and capture punctuation and append to end of text
 var myApp = angular.module('pigLatinApp', [])
 
 myApp.controller('mainController', [
@@ -10,21 +11,14 @@ myApp.controller('mainController', [
         $scope.userText = ''
         $scope.clicked = function() {
             var text = $scope.userText
-
             // check for punctuation and strip out
-            // var reg = /([\?.\!])+/
-            var reg = /([\?])+/
-
-            text = text.replace(reg, '')
-            console.log('TEXT ', text);
-            puncuation = text.replace(reg, reg)
-            console.log('PUNCUATION ', puncuation);
-
-            // if (text.match(reg)) {
-            // }
-
-
-
+            // var strip = /[\?.\!]+/
+            // var punc = /[^\?]*/
+            //
+            // var text = text.replace(strip, '')
+            // console.log('STRIP ', text);
+            // var punctuation = text.replace(punc, '')
+            // console.log('PUNCTUATION ', punctuation);
 
             //check if text does not contain numbers
             var alpha = /^[^0-9]+$/
