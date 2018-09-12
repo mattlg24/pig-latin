@@ -35,3 +35,12 @@ body {
 .form-control {
     opacity: .8;
 }
+
+.title {
+    color: #fff;
+    text-align: center;
+}
+
+.pig-text {
+    color: #fff;
+}

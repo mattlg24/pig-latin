@@ -1,11 +1,14 @@
 // maybe connect to a dictionary to get word meanings
 // be able to tweet your pig latin text (maybe make it a character limit for twitter)
 // strip out and capture punctuation and append to end of text
+// ng model on usertext and then css effects to jumble letters into pig latin https://codepen.io/guardian/pen/EjeXOZ
 var myApp = angular.module('pigLatinApp', [])
 
 myApp.controller('mainController', [
     '$scope',
     function($scope) {
+
+        $scope.regText = true
 
         // grab text from user
         $scope.userText = ''
@@ -40,6 +43,7 @@ myApp.controller('mainController', [
                     var pigWord = end + begin + 'ay'
                     pigArr.push(pigWord)
                 }
+                $scope.regText = false
                 //set to scope
                 $scope.pigText = pigArr.join(' ') + '.'
                 $scope.errorMsg = ''
