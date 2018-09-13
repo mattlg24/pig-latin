@@ -65,7 +65,7 @@ myApp.controller('mainController', [
 
             // split userText into an array of individual letters
             var letters = text.split('')
-            var timer = 50
+            var timer = 10
             var data = 0
 
             // loop through and create <span> for each letter and add data-change attribute
@@ -76,12 +76,6 @@ myApp.controller('mainController', [
             }
 
             var randomnbr = $('.nbr')
-            // console.log('randomnbr ', randomnbr);
-            // var change
-            // for (var i = 0; i < randomnbr.length; i++) {
-            //     change = Math.round(Math.random() * 100)
-            //     $(randomnbr[i]).attr('data-change', change)
-            // }
 
             function random() {
                 return Math.round(Math.random() * 9)
@@ -100,6 +94,7 @@ myApp.controller('mainController', [
                 for (var i = 0; i < randomnbr.length; i++) {
                     if (parseInt($(randomnbr[i]).attr('data-number')) > parseInt($(randomnbr[i]).attr('data-change'))) {
                         var index = $('.ltr').index(randomnbr[i])
+                        console.log('index ', index);
                         $(randomnbr[i]).html(letters[index])
                         $(randomnbr[i]).removeClass('nbr')
                     }
