@@ -6,13 +6,13 @@ var myApp = angular.module('pigLatinApp', [])
 myApp.controller('mainController', [
     '$scope',
     function($scope) {
-
+        // used for ng-if to replace ng-bind text
         $scope.regText = true
 
         // grab text from user
         $scope.userText = ''
         $scope.clicked = function() {
-$scope.test = false
+            $scope.replaceText = false
             // clear .random element each time button clicked
             $('.random').empty()
 
@@ -70,7 +70,7 @@ $scope.test = false
 
             // split pig latin text into an array of individual letters
             var letters = $scope.pigText.split('')
-            var timer = 10
+            var timer = 15
             var data = 0
 
             // loop through and create <span> for each letter and add data-change attribute
@@ -109,7 +109,7 @@ $scope.test = false
 
             setInterval(value, timer)
 
-$scope.test = true
+            $scope.replaceText = true
 
         } // end of click function
 

@@ -25,7 +25,8 @@
 }
 
 body {
-    background: url(images/fat-pig.jpg) no-repeat center center fixed;
+    background-color: #222;
+    /* background: url(images/fat-pig.jpg) no-repeat center center fixed; */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
