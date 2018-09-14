@@ -41,11 +41,6 @@ body {
     text-align: center;
 }
 
-.pig-text {
+.pig-text, .ltr {
     color: #fff;
-}
-
-.ltr {
-    color: #fff;
-    font-size: 30px;
 }

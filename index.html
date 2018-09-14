@@ -58,10 +58,11 @@
                 <p>{{ errorMsg }}</p>
             </div>
             <div>
-                <h1 class="pig-text">{{ pigText }}</h1>
+                <h1 class="pig-text" ng-if="!test">{{ pigText }}</h1>
+                <h1 class="random"></h1>
             </div>
 
-            <div class="random"></div>
+            <!-- <div class="random"></div> -->
 
         </div>
         <!-- end of controller -->
