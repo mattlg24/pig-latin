@@ -1,4 +1,4 @@
-// strip out and capture punctuation and append to end of text
+// strip out and capture punctuation and append to end of text - split on punctuation to grab puncuation from each index in array??? or just put it at end of word where the user put it like here https://funtranslations.com/pig-latin
 // https://codepen.io/guardian/pen/EjeXOZ
 // error if no vowels
 // fix data-number. it continues to count upward so longer time on the page there's no scramble
@@ -16,21 +16,20 @@ myApp.controller('mainController', [
 
             // grab text from user
             var text = $scope.userText
+            console.log('text = ', text);
             // check for punctuation and strip out
-            // var strip = /[\?.\!]+/
-            // var punc = /[^\?]*/
-            //
-            // var text = text.replace(strip, '')
-            // console.log('STRIP ', text);
-            // var punctuation = text.replace(punc, '')
-            // console.log('PUNCTUATION ', punctuation);
+            var strip = /[^\?\.!]+/
+            var punctuation = text.replace(strip, '')
+            console.log('punctuation = ', punctuation);
+            text = text.replace(/[\?\.!]+/, '')
+            console.log('strip text = ', text);
 
             //check if text does not contain numbers
             var alpha = /^[^0-9]+$/
             // if no numbers in text
             if (text.match(alpha)) {
                 $scope.pigText = ''
-                var textArr = $scope.userText.split(' ')
+                var textArr = text.split(' ')
                 var pigArr = []
                 // loop through textArr to work on individual word
                 for (var i = 0; i < textArr.length; i++) {
@@ -48,6 +47,7 @@ myApp.controller('mainController', [
                 $scope.regText = false
                 //set to scope
                 $scope.pigText = pigArr.join(' ') + '.'
+                // $scope.pigText = pigArr.join(' ') + punctuation
                 $scope.errorMsg = ''
                 //append '?' to end of text if question
                 var question = [
