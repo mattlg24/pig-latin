@@ -1,4 +1,4 @@
-// strip out and capture punctuation and append to end of text - split on punctuation to grab puncuation from each index in array??? or just put it at end of word where the user put it like here https://funtranslations.com/pig-latin
+// strip out and capture punctuation and append to end of text - split on punctuation to grab puncuation from each index in array??? or just put it at end of word where the user put it like here https://funtranslations.com/pig-latin - use indexof to find punctuation and then add 3 to the index to place it after the word
 // https://codepen.io/guardian/pen/EjeXOZ
 // error if no vowels
 // fix data-number. it continues to count upward so longer time on the page there's no scramble
