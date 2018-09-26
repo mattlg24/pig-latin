@@ -1,21 +1,20 @@
 // strip out and capture punctuation and append to end of text
 // https://codepen.io/guardian/pen/EjeXOZ
 // error if no vowels
+// fix data-number. it continues to count upward so longer time on the page there's no scramble
 var myApp = angular.module('pigLatinApp', [])
 
 myApp.controller('mainController', [
     '$scope',
     function($scope) {
-        // used for ng-if to replace ng-bind text
+        // used for ng-if to replace
         $scope.regText = true
 
-        // grab text from user
-        $scope.userText = ''
         $scope.clicked = function() {
-            $scope.replaceText = false
             // clear .random element each time button clicked
             $('.random').empty()
 
+            // grab text from user
             var text = $scope.userText
             // check for punctuation and strip out
             // var strip = /[\?.\!]+/
@@ -108,8 +107,6 @@ myApp.controller('mainController', [
             }
 
             setInterval(value, timer)
-
-            $scope.replaceText = true
 
         } // end of click function
 

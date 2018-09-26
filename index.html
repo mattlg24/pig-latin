@@ -41,16 +41,18 @@
                     <!-- /input-group -->
                 </div>
                 <!-- /.col-lg-12 -->
-
             </div>
             <!-- /.row -->
-            <h1 ng-bind="userText" ng-if="regText" class="pig-text"></h1>
-            <div ng-if="errorMsg" class="error">
-                <p>{{ errorMsg }}</p>
-            </div>
-            <div>
-                <h1 class="pig-text" ng-if="!replaceText">{{ pigText }}</h1>
-                <h1 class="random"></h1>
+            <div ng-if="userText" class="border">
+
+                <!-- <h1 class="pig-text">{{ userText }}</h1> -->
+                <h1 ng-if="regText" class="pig-text">{{ userText }}</h1>
+                <!-- <h1 ng-if="!regText && testy" class="pig-text">{{ userText }}</h1> -->
+                <div ng-if="errorMsg" class="error">
+                    <p>{{ errorMsg }}</p>
+                </div>
+                <!-- <h1 class="pig-text" ng-if="!replaceText && !testy">{{ pigText }}</h1> -->
+                <h1 class="random pig-text"></h1>
             </div>
 
             <!-- <div class="random"></div> -->
