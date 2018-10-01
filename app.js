@@ -1,4 +1,4 @@
-// strip out and capture punctuation and append to end of text - split on punctuation to grab puncuation from each index in array??? or just put it at end of word where the user put it like here https://funtranslations.com/pig-latin - use indexof to find punctuation and then add 3 to the index to place it after the word
+// refactor the punctuation
 // https://codepen.io/guardian/pen/EjeXOZ
 // error if no vowels
 // fix data-number. it continues to count upward so longer time on the page there's no scramble
@@ -16,13 +16,6 @@ myApp.controller('mainController', [
 
             // grab text from user
             var text = $scope.userText
-            console.log('text = ', text);
-            // check for punctuation and strip out
-            var strip = /[^\?\.!]+/
-            var punctuation = text.replace(strip, '')
-            console.log('punctuation = ', punctuation);
-            text = text.replace(/[\?\.!]+/, '')
-            console.log('strip text = ', text);
 
             //check if text does not contain numbers
             var alpha = /^[^0-9]+$/
@@ -33,34 +26,40 @@ myApp.controller('mainController', [
                 var pigArr = []
                 // loop through textArr to work on individual word
                 for (var i = 0; i < textArr.length; i++) {
-                    // regex to rework the order to match pig Latin
-                    var begin = textArr[i].split(/([aeiouyAEIOUY].*)/)[0]
-                    var end = textArr[i].split(/([aeiouyAEIOUY].*)/)[1]
-                    // check if first letter is a 'y'. if yes, include 'y' with begin var
-                    if (textArr[i].indexOf('y') === 0) {
-                        var begin = textArr[i].split(/([aeiouAEIOU].*)/)[0]
-                        var end = textArr[i].split(/([aeiouAEIOU].*)/)[1]
+                    var word = textArr[i]
+                    if (word.includes('?') || word.includes('.') || word.includes('!')) {
+                        var strip = /[^\?\.!]+/
+                        var punctuation = word.replace(strip, '')
+                        word = word.replace(/[\?\.!]+/, '')
+
+                        // regex to rework the order to match pig Latin
+                        var begin = word.split(/([aeiouyAEIOUY].*)/)[0]
+                        var end = word.split(/([aeiouyAEIOUY].*)/)[1]
+                        // check if first letter is a 'y'. if yes, include 'y' with begin var
+                        if (word.indexOf('y') === 0) {
+                            var begin = word.split(/([aeiouAEIOU].*)/)[0]
+                            var end = word.split(/([aeiouAEIOU].*)/)[1]
+                        }
+                        var pigWord = end + begin + 'ay' + punctuation
+                        pigArr.push(pigWord)
+                    } else {
+                        // regex to rework the order to match pig Latin
+                        var begin = word.split(/([aeiouyAEIOUY].*)/)[0]
+                        var end = word.split(/([aeiouyAEIOUY].*)/)[1]
+                        // check if first letter is a 'y'. if yes, include 'y' with begin var
+                        if (word.indexOf('y') === 0) {
+                            var begin = word.split(/([aeiouAEIOU].*)/)[0]
+                            var end = word.split(/([aeiouAEIOU].*)/)[1]
+                        }
+                        var pigWord = end + begin + 'ay'
+                        pigArr.push(pigWord)
+
                     }
-                    var pigWord = end + begin + 'ay'
-                    pigArr.push(pigWord)
                 }
                 $scope.regText = false
                 //set to scope
-                $scope.pigText = pigArr.join(' ') + '.'
-                // $scope.pigText = pigArr.join(' ') + punctuation
+                $scope.pigText = pigArr.join(' ')
                 $scope.errorMsg = ''
-                //append '?' to end of text if question
-                var question = [
-                    'who',
-                    'what',
-                    'when',
-                    'where',
-                    'why',
-                    'how'
-                ]
-                if (question.indexOf(textArr[0].toLowerCase()) !== -1) {
-                    $scope.pigText = pigArr.join(' ') + '?'
-                }
                 // if numbers found in text
             } else {
                 $scope.pigText = ''
