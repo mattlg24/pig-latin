@@ -1,4 +1,3 @@
-// refactor the punctuation
 // https://codepen.io/guardian/pen/EjeXOZ
 // error if no vowels
 // fix data-number. it continues to count upward so longer time on the page there's no scramble
@@ -27,48 +26,34 @@ myApp.controller('mainController', [
                 // loop through textArr to work on individual word
                 for (var i = 0; i < textArr.length; i++) {
                     var word = textArr[i]
-                    if (word.includes('?') || word.includes('.') || word.includes('!')) {
-                        var strip = /[^\?\.!]+/
-                        var punctuation = word.replace(strip, '')
-                        word = word.replace(/[\?\.!]+/, '')
+                    var strip = /[^\?\.!]+/
+                    var punctuation = word.replace(strip, '')
+                    word = word.replace(/[\?\.!]+/, '')
 
-                        // regex to rework the order to match pig Latin
-                        var begin = word.split(/([aeiouyAEIOUY].*)/)[0]
-                        var end = word.split(/([aeiouyAEIOUY].*)/)[1]
-                        // check if first letter is a 'y'. if yes, include 'y' with begin var
-                        if (word.indexOf('y') === 0) {
-                            var begin = word.split(/([aeiouAEIOU].*)/)[0]
-                            var end = word.split(/([aeiouAEIOU].*)/)[1]
-                        }
-                        var pigWord = end + begin + 'ay' + punctuation
-                        pigArr.push(pigWord)
-                    } else {
-                        // regex to rework the order to match pig Latin
-                        var begin = word.split(/([aeiouyAEIOUY].*)/)[0]
-                        var end = word.split(/([aeiouyAEIOUY].*)/)[1]
-                        // check if first letter is a 'y'. if yes, include 'y' with begin var
-                        if (word.indexOf('y') === 0) {
-                            var begin = word.split(/([aeiouAEIOU].*)/)[0]
-                            var end = word.split(/([aeiouAEIOU].*)/)[1]
-                        }
-                        var pigWord = end + begin + 'ay'
-                        pigArr.push(pigWord)
-
+                    // regex to rework the order to match pig Latin
+                    var begin = word.split(/([aeiouyAEIOUY].*)/)[0]
+                    var end = word.split(/([aeiouyAEIOUY].*)/)[1]
+                    // check if first letter is a 'y'. if yes, include 'y' with begin var
+                    if (word.indexOf('y') === 0) {
+                        begin = word.split(/([aeiouAEIOU].*)/)[0]
+                        end = word.split(/([aeiouAEIOU].*)/)[1]
                     }
+                    var pigWord = end + begin + 'ay' + punctuation
+                    pigArr.push(pigWord)
                 }
                 $scope.regText = false
                 //set to scope
                 $scope.pigText = pigArr.join(' ')
                 $scope.errorMsg = ''
-                // if numbers found in text
             } else {
+                // if numbers found in text
                 $scope.pigText = ''
                 $scope.errorMsg = 'Enter letters only'
             }
 
             // split pig latin text into an array of individual letters
             var letters = $scope.pigText.split('')
-            var timer = 15
+            var timer = 10
             var data = 0
 
             // loop through and create <span> for each letter and add data-change attribute
