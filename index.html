@@ -28,15 +28,15 @@
 <body>
 
     <div class="container">
-        <div ng-controller="mainController">
+        <div ng-controller="mainController" class="wrapper">
             <h1 class="title">What did you say?</h1>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="input-group">
-                        <input type="text" class="form-control" ng-model="userText" placeholder="Enter Text">
                         <span class="input-group-btn">
                             <button class="btn" type="button" ng-click="clicked()">Submit</button>
                         </span>
+                        <input type="text" class="form-control" ng-model="userText" placeholder="Enter Text">
                     </div>
                     <!-- /input-group -->
                 </div>
@@ -44,18 +44,12 @@
             </div>
             <!-- /.row -->
             <div ng-if="userText" class="border">
-
-                <!-- <h1 class="pig-text">{{ userText }}</h1> -->
                 <h1 ng-if="regText" class="pig-text">{{ userText }}</h1>
-                <!-- <h1 ng-if="!regText && testy" class="pig-text">{{ userText }}</h1> -->
                 <div ng-if="errorMsg" class="error">
                     <p>{{ errorMsg }}</p>
                 </div>
-                <!-- <h1 class="pig-text" ng-if="!replaceText && !testy">{{ pigText }}</h1> -->
                 <h1 class="random pig-text"></h1>
             </div>
-
-            <!-- <div class="random"></div> -->
 
         </div>
         <!-- end of controller -->

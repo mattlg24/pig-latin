@@ -1,14 +1,18 @@
+.wrapper {
+    padding-top: 150px;
+}
+
 .btn {
-    background-color: #007bff;
-    /* background-color: #424242; */
+    /* background-color: #007bff; */
+    background-color: #424242;
     color: #fff;
 }
 
 .btn:hover {
-    background-color: #0069d9;
-    /* background-color: #262626; */
-    border-color: #0062cc;
-    /* border-color: #262626; */
+    /* background-color: #0069d9; */
+    background-color: #262626;
+    /* border-color: #0062cc; */
+    border-color: #262626;
     color: #fff;
 }
 

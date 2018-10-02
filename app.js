@@ -26,9 +26,9 @@ myApp.controller('mainController', [
                 // loop through textArr to work on individual word
                 for (var i = 0; i < textArr.length; i++) {
                     var word = textArr[i]
-                    var strip = /[^\?\.!]+/
+                    var strip = /[^\?\.!,]+/
                     var punctuation = word.replace(strip, '')
-                    word = word.replace(/[\?\.!]+/, '')
+                    word = word.replace(/[\?\.!,]+/, '')
 
                     // regex to rework the order to match pig Latin
                     var begin = word.split(/([aeiouyAEIOUY].*)/)[0]
