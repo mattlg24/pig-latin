@@ -29,7 +29,7 @@
 
     <div class="container">
         <div ng-controller="mainController" class="wrapper">
-            <h1 class="title">What did you say?</h1>
+            <h1 class="title">Pig Latin Generator</h1>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="input-group">
@@ -45,10 +45,10 @@
             <!-- /.row -->
             <div ng-if="userText" class="border">
                 <h1 ng-if="regText" class="pig-text">{{ userText }}</h1>
-                <div ng-if="errorMsg" class="error">
-                    <p>{{ errorMsg }}</p>
-                </div>
                 <h1 class="random pig-text"></h1>
+            </div>
+            <div ng-if="errorMsg" class="error">
+                <p>{{ errorMsg }}</p>
             </div>
 
         </div>
