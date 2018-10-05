@@ -49,7 +49,8 @@ myApp.controller('mainController', [
             } else {
                 // if numbers found in text
                 $scope.pigText = ''
-                $scope.errorMsg = 'Enter letters only'
+                // $scope.errorMsg = 'Enter letters only'
+                $scope.errorMsg = 'Sorry, Numbers Won\'t Work Here'
             }
 
             // split pig latin text into an array of individual letters
