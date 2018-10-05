@@ -3,15 +3,12 @@
 }
 
 .btn {
-    /* background-color: #007bff; */
     background-color: #424242;
     color: #fff;
 }
 
 .btn:hover {
-    /* background-color: #0069d9; */
     background-color: #262626;
-    /* border-color: #0062cc; */
     border-color: #262626;
     color: #fff;
 }
@@ -25,14 +22,10 @@
     padding: 6px;
     border: 1px solid #cc0000;
     border-radius: 3px;
-}
-
-.error.ng-scope {
     background-color: #f2dede;
 }
 
 body {
-    /* background-color: #222; */
     background: url(images/fat-pig.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -47,24 +40,31 @@ body {
 .title {
     color: #fff;
     text-align: center;
+    font-size: 56px;
+    text-shadow: 1px 1px 1px #000;
 }
 
 .border {
     border: 3px solid #47CC75;
-    /* border: 3px solid #0ACC4D; */
-    /* border: 3px solid #0DFF60; */
-    /* border: 3px solid #59FF92; */
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 4px;
+}
+
+.no-border {
+    display: none;
 }
 
 h1.pig-text {
     text-align: center;
     color: #fff;
-    /* color: #000; */
+    text-shadow: 1px 1px 1px #000;
 }
 
 h1.random {
     margin-bottom: 20px;
     text-align: center;
+}
+
+.form-control {
+    border: 1px solid #424242;
 }

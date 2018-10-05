@@ -43,7 +43,7 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <div ng-if="userText" class="border">
+            <div ng-if="userText" class="border" ng-class="{ 'no-border': errorMsg }">
                 <h1 ng-if="regText" class="pig-text">{{ userText }}</h1>
                 <h1 class="random pig-text"></h1>
             </div>
