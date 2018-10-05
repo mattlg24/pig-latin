@@ -1,6 +1,7 @@
 // https://codepen.io/guardian/pen/EjeXOZ
 // error if no vowels
 // fix data-number. it continues to count upward so longer time on the page there's no scramble
+// set past few phrases to local storage to display underneath
 var myApp = angular.module('pigLatinApp', [])
 
 myApp.controller('mainController', [
